@@ -210,6 +210,7 @@ h3 {
 .bg-image {
     flex: 1;
     min-width: 300px;
+    height: 400px;
     margin: 10px;
     border-radius: 10px;
     overflow: hidden;
@@ -218,13 +219,66 @@ h3 {
 
 .bg-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 
 .bg-image:hover img {
     transform: scale(1.03);
+}
+
+/* Creator Section Styles */
+.creator-section {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+}
+
+.creator-profile {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.creator-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-green);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.creator-info {
+    text-align: center;
+}
+
+.creator-info h3 {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.creator-info h2 {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+.creator-info h2 a {
+    color: var(--primary-green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.creator-info h2 a:hover {
+    color: var(--dark-green);
+    text-decoration: underline;
 }
 
 /* Sudan Flag Section */
@@ -279,23 +333,6 @@ h3 {
     border-left: 100px solid var(--primary-green);
 }
 
-/* Footer Styles */
-footer {
-    background-color: var(--primary-green);
-    color: var(--white);
-    padding: 20px 0;
-    text-align: center;
-}
-
-.credits {
-    font-size: 1.1rem;
-}
-
-.credits a {
-    color: var(--white);
-    text-decoration: underline;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
@@ -316,6 +353,19 @@ footer {
     
     .original-image, .green-image {
         margin-bottom: 20px;
+    }
+    
+    .bg-image {
+        height: 300px;
+    }
+    
+    .creator-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .creator-info h2 {
+        font-size: 1.8rem;
     }
     
     .sudan-flag {
@@ -354,6 +404,19 @@ footer {
     
     .upload-instructions p {
         font-size: 1rem;
+    }
+    
+    .bg-image {
+        height: 250px;
+    }
+    
+    .creator-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .creator-info h2 {
+        font-size: 1.5rem;
     }
     
     #process-btn, #download-btn {
