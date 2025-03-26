@@ -7,9 +7,9 @@
 }
 
 :root {
-    --primary-green: #008751;
-    --dark-green: #006039;
-    --light-green: #00a867;
+    --primary-green: #55d76d;
+    --dark-green: #45b359;
+    --light-green: #7de290;
     --white: #ffffff;
     --black: #000000;
     --red: #d21034;
@@ -46,10 +46,33 @@ header h1 {
     font-size: 1.5rem;
     font-weight: bold;
     margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .slogan p {
     margin: 5px 0;
+}
+
+/* Visitor Counter Styles */
+.visitor-counter {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.visitor-counter p {
+    margin: 0;
+}
+
+#visitor-count {
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Main Content Styles */
@@ -100,12 +123,12 @@ h2 {
 }
 
 .upload-area:hover {
-    background-color: rgba(0, 135, 81, 0.05);
+    background-color: rgba(85, 215, 109, 0.05);
 }
 
 .upload-area.active {
     border-color: var(--dark-green);
-    background-color: rgba(0, 135, 81, 0.1);
+    background-color: rgba(85, 215, 109, 0.1);
 }
 
 .upload-instructions {
@@ -202,16 +225,15 @@ h3 {
 /* Background Images Section */
 .background-images {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 40px 0;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    max-width: 800px;
 }
 
 .bg-image {
-    flex: 1;
-    min-width: 300px;
-    height: 400px;
-    margin: 10px;
+    width: 100%;
+    height: 500px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -221,7 +243,7 @@ h3 {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
@@ -281,58 +303,6 @@ h3 {
     text-decoration: underline;
 }
 
-/* Sudan Flag Section */
-.flag-section {
-    text-align: center;
-    margin: 40px 0;
-}
-
-.sudan-flag {
-    width: 300px;
-    height: 150px;
-    margin: 0 auto;
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.sudan-flag .red {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 33.33%;
-    background-color: var(--red);
-}
-
-.sudan-flag .white {
-    position: absolute;
-    top: 33.33%;
-    left: 0;
-    width: 100%;
-    height: 33.33%;
-    background-color: var(--white);
-}
-
-.sudan-flag .black {
-    position: absolute;
-    top: 66.66%;
-    left: 0;
-    width: 100%;
-    height: 33.33%;
-    background-color: var(--black);
-}
-
-.sudan-flag .green-triangle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-top: 75px solid transparent;
-    border-bottom: 75px solid transparent;
-    border-left: 100px solid var(--primary-green);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
@@ -341,6 +311,10 @@ h3 {
     
     .slogan {
         font-size: 1.2rem;
+    }
+    
+    .visitor-counter {
+        font-size: 1rem;
     }
     
     .upload-area {
@@ -356,7 +330,7 @@ h3 {
     }
     
     .bg-image {
-        height: 300px;
+        height: 350px;
     }
     
     .creator-image {
@@ -367,17 +341,6 @@ h3 {
     .creator-info h2 {
         font-size: 1.8rem;
     }
-    
-    .sudan-flag {
-        width: 200px;
-        height: 100px;
-    }
-    
-    .sudan-flag .green-triangle {
-        border-top: 50px solid transparent;
-        border-bottom: 50px solid transparent;
-        border-left: 66.67px solid var(--primary-green);
-    }
 }
 
 @media (max-width: 480px) {
@@ -387,6 +350,10 @@ h3 {
     
     .slogan {
         font-size: 1rem;
+    }
+    
+    .visitor-counter {
+        font-size: 0.9rem;
     }
     
     h2 {

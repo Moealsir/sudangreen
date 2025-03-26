@@ -10,14 +10,62 @@ document.addEventListener('DOMContentLoaded', function() {
     const greenImage = document.getElementById('green-image');
     const downloadBtn = document.getElementById('download-btn');
     const uploadIcon = document.getElementById('upload-icon');
+    const visitorCountElement = document.getElementById('visitor-count');
 
     // Variables to store image data
     let uploadedImage = null;
     let processedImage = null;
 
+    // Define the specific green color requested by the user
+    const SUDAN_GREEN = {
+        r: 85,  // #55
+        g: 215, // #d7
+        b: 109  // #6d
+    };
+
+    // Initialize and update visitor counter
+    initVisitorCounter();
+
     // Create a placeholder upload icon if it doesn't exist
     if (uploadIcon && uploadIcon.naturalWidth === 0) {
         createUploadIcon();
+    }
+
+    // Function to initialize and update visitor counter
+    function initVisitorCounter() {
+        if (!visitorCountElement) return;
+        
+        // Get current count from localStorage
+        let count = localStorage.getItem('sudanGreenVisitorCount');
+        
+        // If no count exists, initialize to 0
+        if (count === null) {
+            count = 0;
+        } else {
+            count = parseInt(count);
+        }
+        
+        // Increment count for this visit
+        count++;
+        
+        // Save updated count to localStorage
+        localStorage.setItem('sudanGreenVisitorCount', count);
+        
+        // Display the count
+        visitorCountElement.textContent = count.toLocaleString('ar-EG'); // Format in Arabic numerals
+        
+        // Animate the counter to draw attention
+        animateCounter();
+    }
+
+    // Function to animate the counter
+    function animateCounter() {
+        visitorCountElement.style.transition = 'transform 0.5s ease-in-out';
+        visitorCountElement.style.transform = 'scale(1.2)';
+        
+        setTimeout(() => {
+            visitorCountElement.style.transform = 'scale(1)';
+        }, 500);
     }
 
     // Function to create upload icon programmatically
@@ -27,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
         canvas.height = 100;
         const ctx = canvas.getContext('2d');
         
-        // Draw upload icon
-        ctx.fillStyle = '#008751';
+        // Draw upload icon with the new green color
+        ctx.fillStyle = '#55d76d';
         ctx.beginPath();
         ctx.arc(50, 50, 40, 0, Math.PI * 2);
         ctx.fill();
@@ -131,16 +179,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             const data = imageData.data;
             
-            // Apply green effect
+            // Apply green effect using the specific green color (#55d76d)
             for (let i = 0; i < data.length; i += 4) {
-                // Keep the green channel, reduce red and blue
-                const green = data[i + 1];
-                data[i] = data[i] * 0.1;     // Reduce red
-                // Green stays the same
-                data[i + 2] = data[i + 2] * 0.1; // Reduce blue
+                // Get the grayscale value to maintain image details
+                const gray = (data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114);
                 
-                // Enhance green slightly
-                data[i + 1] = Math.min(255, green * 1.2);
+                // Calculate the intensity factor (how much of the original image to keep)
+                const intensity = gray / 255;
+                
+                // Apply the specific green color with varying intensity based on the original image
+                data[i] = Math.min(255, SUDAN_GREEN.r * intensity);     // Red channel
+                data[i + 1] = Math.min(255, SUDAN_GREEN.g * intensity); // Green channel
+                data[i + 2] = Math.min(255, SUDAN_GREEN.b * intensity); // Blue channel
+                
+                // Alpha channel remains unchanged
             }
             
             // Put the modified image data back
