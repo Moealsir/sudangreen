@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السودان الأخضر - تحويل الصور إلى اللون الأخضر</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>السودان الأخضر</h1>
+            <div class="slogan">
+                <p>عاش السودان حرا مستقلا</p>
+                <p>شعب واحد جيش واحد</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="upload-section">
+                <h2>حول صورتك إلى اللون الأخضر</h2>
+                <div class="upload-container">
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-instructions">
+                            <img src="assets/upload-icon.png" id="upload-icon" alt="أيقونة الرفع">
+                            <p>اسحب الصورة هنا أو انقر للاختيار</p>
+                            <input type="file" id="file-input" accept="image/*" hidden>
+                        </div>
+                    </div>
+                    <button id="process-btn" disabled>تحويل الصورة</button>
+                </div>
+            </section>
+
+            <section class="result-section" id="result-section" style="display: none;">
+                <h2>النتيجة</h2>
+                <div class="result-container">
+                    <div class="image-comparison">
+                        <div class="original-image">
+                            <h3>الصورة الأصلية</h3>
+                            <img id="original-image" alt="الصورة الأصلية">
+                        </div>
+                        <div class="green-image">
+                            <h3>الصورة الخضراء</h3>
+                            <img id="green-image" alt="الصورة الخضراء">
+                        </div>
+                    </div>
+                    <button id="download-btn">تحميل الصورة الخضراء</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <section class="background-images">
+        <div class="bg-image khartoum">
+            <img src="assets/الخرطوم حره.jpeg" alt="الخرطوم حرة">
+        </div>
+        <div class="bg-image palace">
+            <img src="assets/القصر الجمهوري.jpeg" alt="القصر الجمهوري">
+        </div>
+    </section>
+
+    <section class="flag-section">
+        <div class="container">
+            <div class="sudan-flag">
+                <div class="red"></div>
+                <div class="white"></div>
+                <div class="black"></div>
+                <div class="green-triangle"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="credits">
+                <p>تم البناء بواسطة <a href="https://x.com/Theonlysiroo" target="_blank">محمد السر</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
