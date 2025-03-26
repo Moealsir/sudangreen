@@ -1,4 +1,4 @@
-# SUDAN GREEN
+# السودان الأخضر (SUDAN GREEN)
 
 A web application that allows users to transform their images with a green effect to show solidarity with Sudan.
 
