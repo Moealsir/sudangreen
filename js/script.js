@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Get current count from localStorage
         let count = localStorage.getItem('sudanGreenVisitorCount');
         
-        // If no count exists, initialize to 0
+        // If no count exists, initialize to 100 as requested
         if (count === null) {
-            count = 0;
+            count = 100;
         } else {
             count = parseInt(count);
         }
